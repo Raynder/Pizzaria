@@ -1,0 +1,92 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Playball&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
+
+body{
+    background: url("../_imagens/_fundo.jpg");
+    width: 900px;
+    margin: 0px auto 0px auto;
+}
+
+body#sistem{
+    background: url("../_imagens/_fundo.jpg");
+    width: 100%;
+    margin: 0px auto 0px auto;
+}
+nav#menu{
+    padding: auto;
+    margin: auto auto auto 200px;
+}
+body h5{
+    font-family: 'Indie Flower', cursive;
+}
+/*Formatação das boas vindas*/
+figure.imagem{
+    margin: 0px 0px 0px 0px;
+    position: relative;
+    box-shadow: 1px 1px 1px black;
+    box-sizing: border-box;
+}
+figure.imagem img{
+    width: 100%;
+    height: 100%;
+}
+/*posição do texto na imagem*/
+figure.imagem figcaption{
+    position: absolute;
+    top: 0px;
+    padding: 20px;
+}
+
+nav#menu ul{
+    font-family: 'Playball', cursive;
+    font-weight: bold;
+    list-style: none;
+    text-transform: uppercase;
+    position: absolute;
+    top: -25px;
+}
+nav#menu a{
+    color: black;
+    text-decoration: none;
+}
+nav#menu li{
+    color: black;
+    display: inline-block;
+    background-color: #dddddd;
+    padding: 10px;
+    margin: 4px;
+}
+.canto{
+    float: right;
+    padding: 10px;
+    margin: 4px 20px;
+    text-transform: uppercase;
+}
+/*Efeito dos botões*/
+nav#menu li:hover{
+    background-color: red;
+    color: white;
+}
+/*Formatação da area de conteudo, após a divisão*/
+div#interface{
+    background-color: rgba(0,0,0,.5);
+    margin: 10px 0px 30px 0px;
+}
+/*Formatação do tamanho do espaço até a divisão*/
+header#cabeçalho{
+
+    border-bottom: 1px #dddddd solid;
+    height: 50px;
+}
+/*Formatação da altura dos botões de nav*/
+header#cabeçalho nav ul{
+    margin-top: 25px;
+}
+footer{
+    border-top: 2px #dddddd solid;
+    clear: both;
+}
+
+
+

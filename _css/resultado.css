@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+body {
+    background: url("../_imagens/_fundo.jpg");
+    width: 500px;
+    margin: 0px auto 0px auto;
+    background: url("../_imagens/_fundo.jpg");
+    text-align: center;
+    box-shadow: black 5px 2px;
+}

@@ -1,0 +1,250 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Ma+Shan+Zheng&display=swap');
+
+.branco{
+    color: white;
+}
+.branco span{
+    color: white;
+}
+body#sistem{
+    background-image: url("../_imagens/pedir-fundo2.png");
+    background-repeat: no-repeat;
+    background-size: 100% 450px;
+
+}
+/*Formatação do tamanho do espaço até a divisão*/
+header#cabeçalho2{
+    background-color: yellow;
+    border-bottom: 1px #dddddd solid;
+    height: 50px;
+}
+/*Formatação da altura dos botões de nav*/
+header#cabeçalho2 nav ul{
+    margin-top: 25px;
+}
+.box {
+    width: 28%;
+    height: 400px;
+    position: fixed;
+    z-index: 1000;
+    right: 2rem;
+    top: 4rem;
+    background: white;
+}
+.box h1{
+    text-align: center;
+}
+.box p{
+    font-size: 20px;
+    margin-left: 4px;
+
+}
+.add{
+    position: relative;
+    top: -10%;
+    left: 20%;
+}
+#finalizar{
+    position: absolute;
+    top: -30px;
+    left: 120px;
+}
+input.pedir{
+    padding: 10px;
+}
+select:focus{
+    box-shadow: white;
+    border: 0 none;
+    outline: 0;
+}
+label{
+    display: table; /* Isso faz os selects ficarem um abaixo do outro */
+    padding: auto; /*espaçamento um do outro select */
+}
+#titulo{
+    text-transform: uppercase;
+    color: #c80004;
+    margin-left: 5px;
+    font-size: 12pt;
+    font-weight: bold;
+    margin-top: 5px;
+    -webkit-text-stroke-width: 1px; /* largura da borda */
+    -webkit-text-stroke-color: #000000; /* cor da borda */
+}
+textarea{
+    margin-left: 5px;
+}
+#ok{
+    position: absolute;
+    margin-top: 50%;
+    left: 5px;
+    width: 100px;
+}
+select{
+    padding: 10px; /* Isso faz os botões ficarem maiores */
+    width: 150px; /* Isso deixa todos os botões com o mesmo comprimento */
+    margin-left: 5%; /* Margen lateral automatica*/
+}
+img#mesa{
+    position: absolute; /* Isso faz a imagem ficar no TOP junto com as opçoes*/
+    width: 100%; /* Isso faz a imagem se redimencionar de acordo com o tamalho */
+}
+div#resumo{
+    width: 100%;
+    height: 50px;
+}
+section#mesa{
+    left: 0; /* Isso deixa a Div encostada no lado esquerdo*/
+    width: 250px;
+    height: 250px;
+    position: absolute; /* Isso faz os botoões ficar no TOP junto com a imagem*/
+}
+
+section#pizza{
+    left: 50%; /* Isso e o transform mantem a segunda div centralizada*/
+    transform: translateX(-50%);
+    position: absolute; /* Isso faz eles ficarem um em cima do outro*/
+    width: 274px; /* Define a largura somando os dois lados da forma*/
+    height: 263px; /* Define a altura da forma*/
+
+}
+
+div#bancada img{/* Essa div posiciona a bancada em baixo da bandeja da pizza*/
+    position: relative;
+    top: 1270px;
+    width: 100%;
+}
+div#sabor{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 274px; /* Define a largura somando os dois lados da forma*/
+    height: 263px; /* Define a altura da dos selects*/
+}
+div#sabor select{
+    width: 130px;
+    height: 240px;
+    display: inline;
+    margin-left: 0%;
+    opacity: 0;
+}
+div#sabor label{
+    display: inline;
+    left: 0px;
+}
+/* Essa parte faz as duas partes da bandeja se posicionarem no local adequado*/
+img#partee{
+    position: absolute;
+}
+img#parted{
+    position: absolute;
+    transform: translateX(96%);
+}
+.alerta{
+    position: absolute;
+    top: 53px;
+    left: 43%;
+    background-color: rgba(50, 205, 50, .3);
+    border: 1px solid rgb(34, 139, 34);
+    font-weight: bold;
+}
+.erro{
+    position: absolute;
+    top: 53px;
+    left: 43%;
+    background-color: rgb(122, 19, 23);
+    border: 1px solid rgb(200, 0, 4);
+    color: white;
+}
+#botao{
+    position: absolute;
+    top: 230px;
+    left: 60px;
+}
+.flutuante {
+    background-color: red;
+    width: 100px;
+    height: 50px;
+    margin-top: 140px; /* altura que está do topo */
+    top: 50px; /* altura que vai parar antes do topo */
+    position: sticky;
+}
+#bebidas{
+    position: absolute;
+    top: 450px;
+    width: 75%;
+}
+#refri{
+    position: relative;
+    left: 200px;
+    top: 70px;
+}
+.coca p{
+    position: absolute;
+    left: 50%;
+    font-size: 60px;
+    color: darkred;
+}
+.coca{
+    display: none;
+    background-image: url("../_imagens/_bebidas/copo-coca.jpg");
+    height: 400px;
+    width: 100%;
+}
+.guarana p {
+    position: absolute;
+    left: 50%;
+    font-size: 60px;
+    color: green;
+}
+.guarana{
+    display: none;
+    background-image: url("../_imagens/_bebidas/copo-guarana.png");
+    height: 400px;
+    width: 100%;
+}
+
+@media(max-width: 800px){
+    nav#menu{
+        padding: auto;
+        margin: auto auto auto 0px;
+    }
+    .box {
+        width: 20%;
+        height: 400px;
+        position: fixed;
+        z-index: 1000;
+        right: 2rem;
+        top: 4rem;
+        background: white;
+        border: solid 2px #000000;
+    }
+}
+@media(max-width: 590px) {
+    nav#menu li{
+        color: black;
+        display: inline-block;
+        background-color: #dddddd;
+        padding: 5px;
+        margin-left: 0px;
+        font-size: 12px;
+    }
+    .box {
+        width: 30%;
+        height: 400px;
+        position: fixed;
+        z-index: 1000;
+        right: 0rem;
+        top: 6rem;
+        background: white;
+        border: solid 2px #000000;
+    }
+}#qtdtot {
+    position: absolute;
+    top: 1000px;
+    display: none;
+}#fim {
+    position: absolute;
+    top: 1100px;
+}
