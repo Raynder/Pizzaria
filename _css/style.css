@@ -1,0 +1,35 @@
+body{
+
+    font: 20px Arial, sans-serif;
+}
+.navbar{
+    background-color: rgba(255, 142, 27, 0.8);
+    padding: 0px;
+}
+.navbar-light .navbar-nav .nav-link{
+    color: white;
+    margin-left: 15px;
+}
+.BoasVindas{
+    font-family: "Apple Color Emoji";
+    padding-top: 70px;
+    background-color: white;
+}
+.BoasVindas h2{
+    color: #ff8e1b;
+    font-family: "Palatino Linotype";
+    width: 100%;
+}
+.Cardapio{
+    background-color: #ff8e1b;
+}
+.Cardapio h2{
+    color: white;
+    font-size: 36px;
+    width: 100%;
+}
+@media (max-width:576px) {
+    #menu{
+        display: none;
+    }
+}
