@@ -28,8 +28,30 @@ body{
     font-size: 36px;
     width: 100%;
 }
-@media (max-width:576px) {
+@media (max-width:991px) {
     #menu{
         display: none;
+    }
+    .rounded-circle{
+
+    }
+    .navbar{
+        padding: 40px;
+    }
+    .BoasVindas{
+        padding-top: 185px;
+    }
+    section p{
+        font-size: 40px;
+    }
+    section h2{
+        font-size: 80px;
+    }
+    .navbar-light .navbar-nav .nav-link{
+        font-size: 40px;
+        padding-top: 80px;
+    }
+    .bt-menu{
+        font-size: 60px;
     }
 }
