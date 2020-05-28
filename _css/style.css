@@ -33,7 +33,7 @@ body{
         display: none;
     }
     .rounded-circle{
-
+        width: 100%;
     }
     .navbar{
         padding: 40px;
