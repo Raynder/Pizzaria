@@ -2,6 +2,8 @@ body{
 
     font: 20px Arial, sans-serif;
 }
+/*FORMATAÇÃO DA PAGINA INDEX */
+
 .navbar{
     background-color: rgba(255, 142, 27, 0.8);
     padding: 0px;
@@ -10,7 +12,7 @@ body{
     color: white;
     margin-left: 15px;
 }
-.BoasVindas{
+.BoasVindas, .conteudo{
     font-family: "Apple Color Emoji";
     padding-top: 70px;
     background-color: white;
@@ -55,3 +57,56 @@ body{
         font-size: 60px;
     }
 }
+/*FIM DA FORMATAÇÃO DA PAGINA INDEX */
+
+/*FORMATAÇÃO DA PAGINA PEDIR PIZZA */
+#pizza{
+    position: relative;
+    display: flex;
+}
+.bandeja{
+    height: 100%;
+}
+.entrada{
+    width: 80%;
+    height: 50px;
+}
+.entrada-hidden{
+    opacity: 0;
+    width: 50%;
+    position: absolute;
+    height: 100%;
+
+    /* CONFIGURANDO OS BOTÕES DE ESCOLHER SABORES */
+    -webkit-appearance: none;
+    appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0;!important;
+    background: #ff8e1b;
+    background-image: none;
+
+    flex: 1;
+    padding: 0 .5em;
+    color: white;
+}
+.entrada-hidden::-ms-expand{
+    display: none;
+}
+.entrada-hidden optgroup{
+    font-size: 20px;
+}
+.right{
+    right: 0;
+}
+@media (max-width: 9911px) {
+    .bandeja{
+        width: 50%;
+    }
+    .entrada{
+        width: 100%;
+    }
+}
+/*FIM DA FORMATAÇÃO DA PAGINA PEDIR PIZZA */
