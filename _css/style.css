@@ -86,8 +86,27 @@ body{
     position: absolute;
     height: 100%;
 }
+.box{
+    height: 100%;
+}
 .right{
     right: 0;
+}
+.direito{
+    width: 20%;
+    position: absolute;
+    right: 0;
+}
+.inteiro{
+    width: 100%;
+}
+.bottom{
+    position: absolute;
+    bottom: 8px;
+    margin-left: 10px;
+}
+.margin-right{
+    margin-right: 10px;
 }
 .botao-pedir{
     width: 40%;
@@ -133,6 +152,22 @@ valor h2{
         font-size: 70px;
         line-height: 120px;
         height: 92%;
+    }
+}
+#finalizar{
+    position: absolute;
+    margin-bottom: -40px;
+}
+.s_pedido{
+    color: white;
+    background-color: #ff8e1b;
+}
+@media (max-width: 991px) {
+    #finalizar{
+        position: absolute;
+        margin-bottom: -90px;
+        width: 30%;
+        margin-left: 30%;
     }
 }
 /*FIM DA FORMATAÇÃO DA PAGINA PEDIR PIZZA */

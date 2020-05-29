@@ -4,12 +4,11 @@ $u = new Pedido;
 global $nsab1;
 global $nsab2;
 session_start();
-/*if (!isset($_SESSION['id'])){
+if (!isset($_SESSION['id'])){
     header("location: login.php");
     exit;
 }
 $id = $_SESSION['id'];
-*/
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -85,6 +84,8 @@ $id = $_SESSION['id'];
 <nav class="navbar navbar-expand-lg navbar-light fixed-top">
     <a><img src="_imagens/icone.png" class="icone" width="80" height="60"></a>
 
+    <label >Bem Vindo(a) <?php echo $_SESSION['nome']; ?></label>
+
     <button onclick="mostrar()" class="navbar-toggler bt-menu" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -92,17 +93,21 @@ $id = $_SESSION['id'];
     <div class="navbar-collapse" id="menu">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a href="index.php" class="nav-link">HOME</a>
+                <a href="index.html" class="nav-link">HOME</a>
             </li>
             <li class="nav-item">
-                <a href="pedir-pizza.php" class="nav-link">PEDIR PIZZA</a>
+                <a href="pedir-pizza2.php" class="nav-link">PEDIR PIZZA</a>
             </li>
             <li class="nav-item">
                 <a href="contato.php" class="nav-link">CONTATO</a>
             </li>
+            <li class="nav-item">
+                <a href="logout.php" class="nav-link">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sair</a>
+            </li>
         </ul>
     </div>
-    <!--<label class="canto">Bem Vindo(a) <?php echo $_SESSION['nome']; ?><a href="logout.php">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sair</a></label> -->
+
+
 
 </nav>
 <!--SESSÃO DE OPÇOES-->
@@ -112,39 +117,40 @@ $id = $_SESSION['id'];
 
         <section class="Opcoes col-lg-4">
 
-            <div class="col-lg-12">
-                <label for="ntam" class="tamanho"></label>
+            <form method="post">
+                <div class="col-lg-12">
+                    <label for="ntam" class="tamanho"></label>
 
-                <select class="entrada" name="ntam" id="itam">
-                    <option value="G" onclick="detalhar()">Pizza Grande</option>
-                    <option value="M">Pizza Média</option>
-                    <option value="P">Pizza Pequena</option>
-                </select>
-            </div>
-            <div class="col-lg-12">
-                <label for="nbor" class="bordas"></label>
+                    <select class="entrada" name="ntam" id="itam">
+                        <option value="G" onclick="detalhar()">Pizza Grande</option>
+                        <option value="M">Pizza Média</option>
+                        <option value="P">Pizza Pequena</option>
+                    </select>
+                </div>
+                <div class="col-lg-12">
+                    <label for="nbor" class="bordas"></label>
 
-                <select name="nbor" class="entrada">
-                    <option selected value=" ">Nenhuma Borda</option>
-                    <option value="Catupiri ">Borda de Catupiri</option>
-                </select>
-            </div>
-            <div class="col-lg-12">
-                <label id="titulo"><p>Deseja remover algo?<br>informe aqui:</p></label>
-            </div>
-            <div class="col-lg-12">
+                    <select name="nbor" class="entrada">
+                        <option selected value=" ">Nenhuma Borda</option>
+                        <option value="Catupiri ">Borda de Catupiri</option>
+                    </select>
+                </div>
+                <div class="col-lg-12">
+                    <label id="titulo"><p>Deseja remover algo?<br>informe aqui:</p></label>
+                </div>
+                <div class="col-lg-12">
 
-                <textarea id="entrada-text" class="entrada" placeholder="Dica: Sem cebola na de Calabresa e sem azeitona em todas." rows="7"
+                <textarea id="entrada-text" class="entrada"
+                          placeholder="Dica: Sem cebola na de Calabresa e sem azeitona em todas." rows="7"
                           name="obs"></textarea>
-                <input class="entrada" type="button" id="ok" value="OK" onclick="observacao()">
-            </div>
+                    <input class="entrada" type="button" id="ok" value="OK" onclick="observacao()">
+                </div>
+
 
 
         </section>
 
         <section class="mesa col-lg-4">
-
-            <form method="post">
 
 
                 <div id="pizza" class="row">
@@ -250,7 +256,8 @@ $id = $_SESSION['id'];
             <!-- DEMOSTRAÇÃO DOS PEDIDOS FEITOS -->
 
             <div class="box">
-                <h1>Seus Pedidos</h1>
+                <!-- DIVISÃO PARA MOSTRAR BEBIDAS PEDIDAS -->
+                <h1 class="text-center s_pedido">SEUS PEDIDOS</h1>
                 <p>
                     <?php
                     require("_classes/conexao.php");
@@ -262,24 +269,40 @@ $id = $_SESSION['id'];
 
                     while ($dado = $con->fetch_array()) {
                         $id_pedido = $dado['id_pedido'];
-                        echo "Pizza " . $dado['tamanho'] . " sabor " . $dado['saborx'] . " com " . $dado['sabory'];
+                        if ($dado['saborx'] == $dado['sabory']){
+                            ?>
+                <p class="inteiro">
+                    <?php
+                    echo "Pizza " . $dado['tamanho'] . " sabor " . $dado['saborx'];
+                        }
+                        else{
+                            ?>
+                <p class="inteiro">
+                    <?php
+                            echo "Pizza " . $dado['tamanho'] . " sabor " . $dado['saborx'] . " X " . $dado['sabory'];
+                        }
+
                         ?>
                         <a href="apagar_pizza.php?id=<?php echo $dado['id_pedido']; ?>">
-                            <button type="button">remover</button>
-                        </a><br>
+                        <button type="button" class="direito">remover</button></a>
+                        </p><br>
                         <?php
                     }
-                    echo "<br><b>Bebidas</b><br><br>";
+                    //DIVISÃO PARA MOSTRAR BEBIDAS PEDIDAS
+
+                    echo "<br><b><h1 class='text-center s_pedido'>BEBIDAS</h1></b><br><br>";
                     $bebidas = "SELECT * FROM bebidas WHERE id_cliente = $id";
                     $con = $mysqli->query($bebidas) or die ($mysqli->error);
 
                     while ($dado = $con->fetch_array()) {
                         $id_bebida = $dado['id_bebida'];
+                        ?>
+                <p class="inteiro">
+                    <?php
                         echo $dado['nome_bebida'];
                         ?>
                         <a href="apagar_bebida.php?id=<?php echo $dado['id_bebida']; ?>">
-                            <button type="button">remover</button>
-                        </a><br>
+                            <button type="button" class="direito">remover</button></a></p><br>
                         <?php
                     }
                     //FUNÇÃO PARA VERIFICAR SE JA OUVE PEDIDO
@@ -297,7 +320,7 @@ $id = $_SESSION['id'];
                     ?>
 
                 </p>
-                <a href="_php/enviar_email.php"><img id="finalizar" src="_imagens/finalizar.png" width="100%"></a>
+                <a href="_php/enviar_email.php"><img id="finalizar" class="col-lg-6 bottom" src="_imagens/finalizar.png" width="100%"></a>
 
 
             </div>
