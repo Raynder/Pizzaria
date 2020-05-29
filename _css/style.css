@@ -40,13 +40,14 @@ body{
     .navbar{
         padding: 40px;
     }
-    .BoasVindas{
+    .BoasVindas, .conteudo{
         padding-top: 185px;
     }
-    section p{
+    /*ADICIONANDO TAMBÉM AS ENTRADAS DA PAGINA DE PEDIDO*/
+    section p, .entrada{
         font-size: 40px;
     }
-    section h2{
+    section h2, .entrada{
         font-size: 80px;
     }
     .navbar-light .navbar-nav .nav-link{
@@ -66,6 +67,7 @@ body{
 }
 .bandeja{
     height: 100%;
+    width: 50%;
 }
 .entrada{
     width: 80%;
@@ -76,37 +78,48 @@ body{
     width: 50%;
     position: absolute;
     height: 100%;
-
-    /* CONFIGURANDO OS BOTÕES DE ESCOLHER SABORES */
-    -webkit-appearance: none;
-    appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
-    outline: 0;
-    box-shadow: none;
-    border: 0;!important;
-    background: #ff8e1b;
-    background-image: none;
-
-    flex: 1;
-    padding: 0 .5em;
-    color: white;
-}
-.entrada-hidden::-ms-expand{
-    display: none;
-}
-.entrada-hidden optgroup{
-    font-size: 20px;
 }
 .right{
     right: 0;
 }
-@media (max-width: 9911px) {
+.botao-pedir{
+    width: 40%;
+    height: 90%;
+}
+valor h2{
+    background-color: #9b000e;
+    font-size: 20px;
+    line-height: 40px;
+    height: 84%;
+    color: white;
+    text-align: center;
+}
+@media (max-width: 991px) {
     .bandeja{
         width: 50%;
     }
     .entrada{
         width: 100%;
+    }
+    .entrada{
+        height: 150px;
+    }
+    ::-webkit-input-placeholder{
+        font-size: 40px;
+    }
+    ::-moz-placeholder{
+        font-size: 40px;
+    }
+    ::-ms-input-placeholder{
+        font-size: 40px;
+    }
+    ::placeholder{
+        font-size: 40px;
+    }
+    valor h2{
+        font-size: 70px;
+        line-height: 120px;
+        height: 92%;
     }
 }
 /*FIM DA FORMATAÇÃO DA PAGINA PEDIR PIZZA */
