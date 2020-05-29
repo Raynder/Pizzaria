@@ -1,6 +1,8 @@
 body{
-
     font: 20px Arial, sans-serif;
+    background: url("../_imagens/fundo-pedido.jpeg") center center fixed no-repeat;
+    background-size: cover; /*Css padrão*/
+    opacity: 100%;
 }
 /*FORMATAÇÃO DA PAGINA INDEX */
 
@@ -61,6 +63,11 @@ body{
 /*FIM DA FORMATAÇÃO DA PAGINA INDEX */
 
 /*FORMATAÇÃO DA PAGINA PEDIR PIZZA */
+
+.conteudo{
+    opacity: 100%;
+    background-color: rgba(225,225,225,0.8);
+}
 #pizza{
     position: relative;
     display: flex;
@@ -98,8 +105,14 @@ valor h2{
     .bandeja{
         width: 50%;
     }
+    #entrada-text{
+        background-color: #ffe597;
+
+    }
     .entrada{
         width: 100%;
+        background-color: #ff8e1b;
+        color: white;
     }
     .entrada{
         height: 150px;
