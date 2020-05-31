@@ -6,6 +6,9 @@ $u = new Usuario;
 <html>
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="_css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="_JS/sweetAlert.js"></script>
     <title></title>
     <style>
         *{
@@ -69,22 +72,39 @@ $u = new Usuario;
             background-color: rgba(165, 128, 114, .3);
             border: 1px solid rgb(165, 42, 42);
         }
+        @media (max-width: 991px){
+            input{
+                font-size: 50px;
+                height: 100px;
+                width: 100%;
+            }
+            h1{
+                font-size: 100px;
+            }
+            p{
+                font-size: 20px;
+            }
+            #corpo{
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
-<div id="corpo">
-    <h1>CADASTRAR</h1>
-    <form method="post" class="">
+<div id="corpo" class="container">
+    <div class="col-lg-12"><h1>CADASTRAR</h1>
+        <form method="post" class="">
 
-        <p><input value="" type="text" placeholder="Nome Completo" name="nome" maxlength="30"></p>
-        <p><input class="esp" value="" type="text" placeholder="Telefone" name="telefone" maxlength="15"></p>
-        <p><input value="" type="text" placeholder="endereco" name="endereco" maxlength="50"></p>
-        <p><input class="esp" value="" type="text" placeholder="complemento" name="complemento" maxlength="50"></p>
-        <p><input value="" type="email" placeholder="Usuario" name="email" maxlength="40"></p>
-        <p><input value="" type="password" placeholder="Senha" name="senha" maxlength="15"></p>
-        <p><input value="" type="password" placeholder="Confirmar Senha" name="confSenha" maxlength="15"></p>
-        <input value="CADASTRAR" type="submit">
-    </form>
+            <p><input value="" type="text" placeholder="Nome Completo" name="nome" maxlength="30"></p>
+            <p><input class="esp" value="" type="text" placeholder="Telefone" name="telefone" maxlength="15"></p>
+            <p><input value="" type="text" placeholder="endereco" name="endereco" maxlength="50"></p>
+            <p><input class="esp" value="" type="text" placeholder="complemento" name="complemento" maxlength="50"></p>
+            <p><input value="" type="email" placeholder="Usuario" name="email" maxlength="40"></p>
+            <p><input value="" type="password" placeholder="Senha" name="senha" maxlength="15"></p>
+            <p><input value="" type="password" placeholder="Confirmar Senha" name="confSenha" maxlength="15"></p>
+            <input value="CADASTRAR" type="submit">
+        </form>
+    </div>
 </div>
 
 
@@ -108,26 +128,15 @@ if (isset($_POST['nome'])){
         if ($u->msgErro == ""){
             if ($senha == $confSenha){
                 if ($u->cadastrar($nome, $telefone, $endereco, $complemento, $email, $senha)){
-                    ?>
-                    <div id="sucesso">
-                        Cadastrado com sucesso! <a href="login.php">Acesse para Logar</a>
-                    </div>
-                    <?php
+                    echo '<script>accontsave</script>';
                 }
                 else{
-                    ?>
-                    <div class="msgerro">
-                        Email ja cadastrado
-                    </div>
-                    <?php
+
+                    echo '<script>alreadyexist</script>';
                 }
             }
             else{
-                ?>
-                <div class="msgerro">
-                    Senha e confirmar senha, não correspondem!
-                </div>
-                <?php
+                echo '<script>notmatch</script>';
             }
         }
         else{
