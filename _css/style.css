@@ -179,6 +179,9 @@ valor h2{
 #car{
     display: none;
 }
+#carrinho{
+    display: none;
+}
 @media (max-width: 991px) {
     #bebidas{
         display: none;

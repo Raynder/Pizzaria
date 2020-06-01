@@ -143,7 +143,7 @@ $id = $_SESSION['id'];
                 <textarea id="entrada-text" class="entrada"
                           placeholder="Dica: Sem cebola na de Calabresa e sem azeitona em todas." rows="7"
                           name="obs"></textarea>
-                    <input class="entrada" type="button" id="ok" value="OK" onclick="showbeb()">
+                    <input class="entrada" type="button" id="ok" value="OK" onclick="observacao()">
                 </div>
 
 
@@ -299,18 +299,6 @@ $id = $_SESSION['id'];
                         ?>
                         <a href="apagar_bebida.php?id=<?php echo $dado['id_bebida']; ?>">
                             <button type="button" class="direito">remover</button></a></p><br>
-                    <?php
-                }
-                //FUNÇÃO PARA VERIFICAR SE JA OUVE PEDIDO
-                $total = 0;
-                $cont = "SELECT * FROM pizzas WHERE id_cliente = $id";
-                $con = $mysqli->query($cont) or die ($mysqli->error);
-                while ($con->fetch_array()) {
-                    ++$total;
-                }
-                if ($total == 0) {
-                    ?>
-                    <script> rotacao();</script>
                     <?php
                 }
                 ?>
