@@ -84,19 +84,4 @@
 </html>
 <?php
 
-if (isset($_POST['ref'])) {
-    $beb1 = $_POST['ref'];
-    if (!empty($beb1)) {
 
-        $u->conectar("login_projeto", "localhost", "root", "");  //CONEXÃO
-        #$u->conectar("id13702487_database","localhost", "id13702487_cardoso", "2GGxdwltfe2@");  //CONEXÃO
-
-
-        if ($u->erro == '') {
-            $u->adicionarbeb($beb1);
-        } else {//Não deu certo
-
-        }
-    }
-}
-?>

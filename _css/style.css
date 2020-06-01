@@ -171,3 +171,47 @@ valor h2{
     }
 }
 /*FIM DA FORMATAÇÃO DA PAGINA PEDIR PIZZA */
+
+
+#bebidas{
+    display: block;
+}
+#car{
+    display: none;
+}
+@media (max-width: 991px) {
+    #bebidas{
+        display: none;
+        background-color: black;
+    }
+    .lateral{
+        position: absolute;
+        height: 100%;
+        color: white;
+        margin-left: 100%;
+        transition: all .2s linear;
+    }
+    .carrinho{
+        position: fixed;
+        right: 0;
+        top: 40%;
+        transition: all .2s linear;
+    }
+    #car{
+        display: block;
+        background-color: black;
+        position: absolute;
+        left: -80px;
+        top: 30%;
+        transition: all .2s linear;
+    }
+    .hidden{
+        display: none;
+    }
+    #carrinho:checked ~ .lateral{
+        margin-left: 5%;
+    }
+    .slide{
+        width: 100%;
+    }
+}

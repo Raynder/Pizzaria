@@ -22,6 +22,9 @@ function observacao() {
         },
     });
 }
+
+//ALERTAS DA PAGINA DE LOGIN E CADASTRO!!
+
 function usrpass() {
     Swal.fire({
         icon: 'error',
@@ -76,4 +79,21 @@ function notmatch() {
             popup: 'branco',
         },
     });
+}
+
+//ALERTAS DA PAGINA DE PEDIR PIZZA!!
+
+function pedidofeito() {
+    Swal.fire({
+        icon: 'sucess',
+        title: 'Seu pedido foi adicionado!',
+        background: '#5e0000',
+    })
+}
+function marksabor() {
+    Swal.fire({
+        icon: 'info',
+        title: 'Escolha todos os sabores',
+        background: '#5e0000',
+    })
 }

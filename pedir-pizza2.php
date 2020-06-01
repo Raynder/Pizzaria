@@ -143,7 +143,7 @@ $id = $_SESSION['id'];
                 <textarea id="entrada-text" class="entrada"
                           placeholder="Dica: Sem cebola na de Calabresa e sem azeitona em todas." rows="7"
                           name="obs"></textarea>
-                    <input class="entrada" type="button" id="ok" value="OK" onclick="observacao()">
+                    <input class="entrada" type="button" id="ok" value="OK" onclick="showbeb()">
                 </div>
 
 
@@ -193,6 +193,8 @@ $id = $_SESSION['id'];
         </section>
 
         <section class="pedidos col-lg-4">
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+            <script src="_JS/sweetAlert.js"></script>
 
             <!-- SALVAMENTO DO PEDIDO NO BANCO DE DADOS -->
             <?php
@@ -232,21 +234,15 @@ $id = $_SESSION['id'];
 
                         $u->adicionar($nsab1, $nsab2, $tam, $bor); //adicionar ao DB
 
-                        ?>
-                        <div class="alerta">
-                            <p>Pedido enviado com sucesso!</p>
-                        </div>
-                        <?php
+                        echo '<script>pedidofeito()</script>';
 
                     } else { //Não deu certo
 
                     }
                 } else {
-                    ?>
-                    <div class="erro">
-                        <p>Escolha todos os Sabores!!</p>
-                    </div>
-                    <?php
+
+                    echo '<script>marksabor()</script>';
+
                 }
             }
 
@@ -268,56 +264,56 @@ $id = $_SESSION['id'];
                     $con = $mysqli->query($pedidos) or die ($mysqli->error);
 
                     while ($dado = $con->fetch_array()) {
-                        $id_pedido = $dado['id_pedido'];
-                        if ($dado['saborx'] == $dado['sabory']){
-                            ?>
+                    $id_pedido = $dado['id_pedido'];
+                    if ($dado['saborx'] == $dado['sabory']){
+                    ?>
                 <p class="inteiro">
                     <?php
                     echo "Pizza " . $dado['tamanho'] . " sabor " . $dado['saborx'];
-                        }
-                        else{
-                            ?>
-                <p class="inteiro">
-                    <?php
-                            echo "Pizza " . $dado['tamanho'] . " sabor " . $dado['saborx'] . " X " . $dado['sabory'];
-                        }
-
-                        ?>
-                        <a href="apagar_pizza.php?id=<?php echo $dado['id_pedido']; ?>">
-                        <button type="button" class="direito">remover</button></a>
-                        </p><br>
-                        <?php
                     }
-                    //DIVISÃO PARA MOSTRAR BEBIDAS PEDIDAS
-
-                    echo "<br><b><h1 class='text-center s_pedido'>BEBIDAS</h1></b><br><br>";
-                    $bebidas = "SELECT * FROM bebidas WHERE id_cliente = $id";
-                    $con = $mysqli->query($bebidas) or die ($mysqli->error);
-
-                    while ($dado = $con->fetch_array()) {
-                        $id_bebida = $dado['id_bebida'];
-                        ?>
+                    else{
+                    ?>
                 <p class="inteiro">
                     <?php
+                    echo "Pizza " . $dado['tamanho'] . " sabor " . $dado['saborx'] . " X " . $dado['sabory'];
+                    }
+
+                    ?>
+                    <a href="apagar_pizza.php?id=<?php echo $dado['id_pedido']; ?>">
+                        <button type="button" class="direito">remover</button></a>
+                </p><br>
+                <?php
+                }
+                //DIVISÃO PARA MOSTRAR BEBIDAS PEDIDAS
+
+                echo "<br><b><h1 class='text-center s_pedido'>BEBIDAS</h1></b><br><br>";
+                $bebidas = "SELECT * FROM bebidas WHERE id_cliente = $id";
+                $con = $mysqli->query($bebidas) or die ($mysqli->error);
+
+                while ($dado = $con->fetch_array()) {
+                    $id_bebida = $dado['id_bebida'];
+                    ?>
+                    <p class="inteiro">
+                        <?php
                         echo $dado['nome_bebida'];
                         ?>
                         <a href="apagar_bebida.php?id=<?php echo $dado['id_bebida']; ?>">
                             <button type="button" class="direito">remover</button></a></p><br>
-                        <?php
-                    }
-                    //FUNÇÃO PARA VERIFICAR SE JA OUVE PEDIDO
-                    $total = 0;
-                    $cont = "SELECT * FROM pizzas WHERE id_cliente = $id";
-                    $con = $mysqli->query($cont) or die ($mysqli->error);
-                    while ($con->fetch_array()) {
-                        ++$total;
-                    }
-                    if ($total == 0) {
-                        ?>
-                        <script> rotacao();</script>
-                        <?php
-                    }
+                    <?php
+                }
+                //FUNÇÃO PARA VERIFICAR SE JA OUVE PEDIDO
+                $total = 0;
+                $cont = "SELECT * FROM pizzas WHERE id_cliente = $id";
+                $con = $mysqli->query($cont) or die ($mysqli->error);
+                while ($con->fetch_array()) {
+                    ++$total;
+                }
+                if ($total == 0) {
                     ?>
+                    <script> rotacao();</script>
+                    <?php
+                }
+                ?>
 
                 </p>
                 <a href="_php/enviar_email.php"><img id="finalizar" class="col-lg-6 bottom" src="_imagens/finalizar.png" width="100%"></a>
@@ -328,6 +324,35 @@ $id = $_SESSION['id'];
             <!--FIM DA DEMOSTRAÇÃO -->
 
         </section>
+
+        <input id="carrinho" class="hidden" type="checkbox">
+
+        <section class="lateral">
+            <label for="carrinho"><img id="car" src="_imagens/bebida.png" onclick="mostrarbeb()" width="80" height="80"></label>
+
+            <div class="container-fluid">
+                <div id="bebidas" class="row">
+                    <a href="#coca-lata"><img class="slide"
+                                              src="_imagens/_bebidas/_mini/coca-lata.jpg"
+                                              onclick="adicionarbeb('Coca_lata')"></a>
+                    <a href="#coca-600"><img class="slide"
+                                             src="_imagens/_bebidas/_mini/coca-600.png"
+                                             onclick="adicionarbeb('Coca_600ml')"></a>
+                    <a href="#coca-2"><img class="slide"
+                                           src="_imagens/_bebidas/_mini/coca-2.png" onclick="adicionarbeb('Coca_2lt')"></a>
+                    <a href="#gua-lata"><img class="slide"
+                                             src="_imagens/_bebidas/_mini/guarana-lata.png" onclick="adicionarbeb('Guarana_lata')"></a>
+                    <a href="#gua-2"><img class="slide"
+                                          src="_imagens/_bebidas/_mini/guarana-2.png" onclick="adicionarbeb('Guarana_2lt')"></a>
+                    <a href="#gua-600"><img class="slide"
+                                            src="_imagens/_bebidas/_mini/guarana-600.png"
+                                            onclick="adicionarbeb('Guarana_600ml')"></a>
+
+                </div>
+            </div>
+
+        </section>
+
 
     </div>
 </div>
