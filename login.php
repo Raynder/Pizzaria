@@ -6,7 +6,10 @@ $u = new Usuario;
 <html>
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <link rel="stylesheet" type="text/css" href="_css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="_JS/sweetAlert.js"></script>
+    <title>Login</title>
     <style>
         *{
             margin: 0px;
@@ -29,7 +32,7 @@ $u = new Usuario;
         }
         #corpo{
             width: 420px;
-            margin: 150px auto 0px auto;
+            align-items: center;
         }
         input{
             outline: none;
@@ -39,7 +42,6 @@ $u = new Usuario;
             width: 400px;
             border-radius: 30px;
             border: 1px solid white;
-            font-size: 16pt;
             padding: 10px 20px;
             background-color: rgba(255, 255, 255, 0.0);
             color: white;
@@ -66,20 +68,37 @@ $u = new Usuario;
             background-color: rgba(165, 128, 114, .3);
             border: 1px solid rgb(165, 42, 42);
         }
+        @media (max-width: 991px){
+            input{
+                font-size: 60px;
+                height: 120px;
+                width: 100%;
+            }
+            h1{
+                font-size: 120px;
+            }
+            p{
+                font-size: 40px;
+            }
+            #corpo{
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
-        <div id="corpo">
-            <h1>ENTRAR</h1>
+<div id="corpo" class="container text-center">
+        <div class="col-lg-12"><h1>ENTRAR</h1>
             <form method="post" class="">
 
-                <p><input value="" type="text" placeholder="exemplo@hotmail.com" name="email"></p>
-                <p><input value="" type="password" placeholder="Digite a senha" name="senha"></p>
-                <p><a href="">Esqueceu sua senha?</a></p>
-                <input value="ENTRAR" type="submit">
-                <p>Não te uma conta? <a href="cadastre.php">Cadastre-se</a></p>
+                <p class=""><input value="" type="text" placeholder="exemplo@hotmail.com" name="email"></p>
+                <p class=""><input value="" type="password" placeholder="Digite a senha" name="senha"></p>
+                <p class=""><a href="">Esqueceu sua senha?</a></p>
+                <input class="logins" value="ENTRAR" type="submit">
+                <p class="login">Não te uma conta? <a href="cadastre.php">Cadastre-se</a></p>
             </form>
         </div>
+</div>
 
 
 <?php
@@ -96,15 +115,11 @@ if (isset($_POST['email'])){
 
             if ($u->logar($email, $senha)) {
                 ?>
-                <meta http-equiv="refresh" content="1; URL='pedir-pizza.php'"/>
+                <meta http-equiv="refresh" content="1; URL='pedir-pizza2.php'"/>
                 <?php
 
             } else {
-                ?>
-                <div class="msgerro">
-                    Email e/ou senha estão incorretos!
-                </div>
-                <?php
+                echo '<script> usrpass()</script>';
             }
         }else{
             ?>
@@ -115,11 +130,7 @@ if (isset($_POST['email'])){
 
         }
     }else{
-        ?>
-        <div class="msgerro">
-            preencha todos os campos!
-        </div>
-        <?php
+        echo '<script>campnull()</script>';
     }
 }
 ?>

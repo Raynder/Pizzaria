@@ -1,0 +1,220 @@
+body{
+    font: 20px Arial, sans-serif;
+    background: url("../_imagens/fundo-pedido.jpeg") center center fixed no-repeat;
+    background-size: cover; /*Css padrão*/
+    opacity: 100%;
+}
+/*FORMATAÇÃO DA PAGINA INDEX */
+
+.navbar{
+    background-color: rgba(255, 142, 27, 0.8);
+    padding: 0px;
+}
+.navbar-light .navbar-nav .nav-link{
+    color: white;
+    margin-left: 15px;
+}
+.BoasVindas, .conteudo{
+    font-family: "Apple Color Emoji";
+    padding-top: 70px;
+    background-color: white;
+}
+.BoasVindas h2{
+    color: #ff8e1b;
+    font-family: "Palatino Linotype";
+    width: 100%;
+}
+.Cardapio{
+    background-color: #ff8e1b;
+}
+.Cardapio h2{
+    color: white;
+    font-size: 36px;
+    width: 100%;
+}
+@media (max-width:991px) {
+    #menu{
+        display: none;
+    }
+    .rounded-circle{
+        width: 100%;
+    }
+    .navbar{
+        padding: 40px;
+    }
+    .BoasVindas, .conteudo{
+        padding-top: 185px;
+    }
+    /*ADICIONANDO TAMBÉM AS ENTRADAS DA PAGINA DE PEDIDO*/
+    section p, .entrada{
+        font-size: 40px;
+    }
+    section h2, .entrada{
+        font-size: 80px;
+    }
+    .navbar-light .navbar-nav .nav-link{
+        font-size: 40px;
+        padding-top: 80px;
+    }
+    .bt-menu{
+        font-size: 60px;
+    }
+}
+/*FIM DA FORMATAÇÃO DA PAGINA INDEX */
+
+/*FORMATAÇÃO DA PAGINA PEDIR PIZZA */
+
+.conteudo{
+    opacity: 100%;
+    background-color: rgba(225,225,225,0.8);
+}
+#pizza{
+    position: relative;
+    display: flex;
+}
+.bandeja{
+    height: 100%;
+    width: 50%;
+}
+.entrada{
+    width: 80%;
+    height: 50px;
+}
+.entrada-hidden{
+    opacity: 0;
+    width: 50%;
+    position: absolute;
+    height: 100%;
+}
+.box{
+    height: 100%;
+}
+.right{
+    right: 0;
+}
+.direito{
+    width: 20%;
+    position: absolute;
+    right: 0;
+}
+.inteiro{
+    width: 100%;
+}
+.bottom{
+    position: absolute;
+    bottom: 8px;
+    margin-left: 10px;
+}
+.margin-right{
+    margin-right: 10px;
+}
+.botao-pedir{
+    width: 40%;
+    height: 90%;
+}
+valor h2{
+    background-color: #9b000e;
+    font-size: 20px;
+    line-height: 40px;
+    height: 84%;
+    color: white;
+    text-align: center;
+}
+@media (max-width: 991px) {
+    .bandeja{
+        width: 50%;
+    }
+    #entrada-text{
+        background-color: #ffe597;
+
+    }
+    .entrada{
+        width: 100%;
+        background-color: #ff8e1b;
+        color: white;
+    }
+    .entrada{
+        height: 150px;
+    }
+    ::-webkit-input-placeholder{
+        font-size: 40px;
+    }
+    ::-moz-placeholder{
+        font-size: 40px;
+    }
+    ::-ms-input-placeholder{
+        font-size: 40px;
+    }
+    ::placeholder{
+        font-size: 40px;
+    }
+    valor h2{
+        font-size: 70px;
+        line-height: 120px;
+        height: 92%;
+    }
+}
+#finalizar{
+    position: absolute;
+    margin-bottom: -40px;
+}
+.s_pedido{
+    color: white;
+    background-color: #ff8e1b;
+}
+@media (max-width: 991px) {
+    #finalizar{
+        position: absolute;
+        margin-bottom: -90px;
+        width: 30%;
+        margin-left: 30%;
+    }
+}
+/*FIM DA FORMATAÇÃO DA PAGINA PEDIR PIZZA */
+
+
+#bebidas{
+    display: block;
+}
+#car{
+    display: none;
+}
+#carrinho{
+    display: none;
+}
+@media (max-width: 991px) {
+    #bebidas{
+        display: none;
+        background-color: black;
+    }
+    .lateral{
+        position: absolute;
+        height: 100%;
+        color: white;
+        margin-left: 100%;
+        transition: all .2s linear;
+    }
+    .carrinho{
+        position: fixed;
+        right: 0;
+        top: 40%;
+        transition: all .2s linear;
+    }
+    #car{
+        display: block;
+        background-color: black;
+        position: absolute;
+        left: -80px;
+        top: 30%;
+        transition: all .2s linear;
+    }
+    .hidden{
+        display: none;
+    }
+    #carrinho:checked ~ .lateral{
+        margin-left: 5%;
+    }
+    .slide{
+        width: 100%;
+    }
+}
